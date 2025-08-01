@@ -123,4 +123,10 @@ public class VentanaRegistrarEmpleado extends JPanel {
 
     public JButton getBtnGuardar() { return btnGuardar; }
     public JButton getBtnCancelar() { return btnCancelar; }
+    
+   public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new VentanaRegistrarEmpleado(); // Ejecuta la GUI
+        });
+    }
 }
