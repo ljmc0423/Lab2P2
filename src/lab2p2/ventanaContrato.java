@@ -6,12 +6,16 @@ package lab2p2;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
-
+import javax.swing.SpinnerDateModel;
 
 /**
  *
@@ -25,8 +29,7 @@ public class ventanaContrato extends JFrame {
 
         JLabel codigoLabel = new JLabel("Código de Empleado: ");
         JTextField codigoText = new JTextField();
-        JButton buscarButton = new JButton("BUSCAR");
-        JLabel ActualizarFechaLabel = new JLabel("Actualizar Fecha: ");
+        JButton actButton = new JButton("ACTUALIZAR");
         JButton salirButton = new JButton("REGRESAR");
      
         
@@ -53,14 +56,10 @@ public class ventanaContrato extends JFrame {
         codigoText.setFont(new Font("Verdana", Font.BOLD, 14));
         codigoText.setForeground(Color.BLACK);
         
-        buscarButton.setBounds(226, 152, 100, 30);
-        buscarButton.setFont(new Font("Verdana", Font.BOLD, 12));
-        buscarButton.setForeground(Color.BLACK);
+        actButton.setBounds(226, 152, 200, 30);
+        actButton.setFont(new Font("Verdana", Font.BOLD, 12));
+        actButton.setForeground(Color.BLACK);
 
-    
-        ActualizarFechaLabel.setBounds(46, 212, 224, 30);
-        ActualizarFechaLabel.setFont(new Font("Verdana", Font.BOLD, 14));
-        ActualizarFechaLabel.setForeground(Color.BLACK);
 
         salirButton.setBounds(330, 400, 130, 30);
         salirButton.setFont(new Font("Verdana", Font.BOLD, 12));
@@ -70,15 +69,26 @@ public class ventanaContrato extends JFrame {
           Lab2P2 ventanaMain = new Lab2P2();
           ventanaMain.setVisible(true);
        });
+        
+        actButton.addActionListener(e -> {
+            int codigo = Integer.parseInt(codigoText.getText());
+            Calendar nuevaFecha = Calendar.getInstance();
+            JSpinner spFecha = new JSpinner(new SpinnerDateModel());
+            nuevaFecha.setTime((Date) spFecha.getValue());
+            Empresa emp=new Empresa();
+            boolean ok = emp.actualizarFechaContrato(codigo, nuevaFecha);
+            JOptionPane.showMessageDialog(this, ok ? "Fecha actualizada" : "Empleado no encontrado o no es temporal");
+        });
        
         this.add(panelLogin);
         panelLogin.add(labelLogin);
         panelLogin.add(codigoLabel);
         panelLogin.add(codigoText);
-        panelLogin.add(buscarButton);
-        panelLogin.add(ActualizarFechaLabel);
+        panelLogin.add(actButton);
         
         panelLogin.add(salirButton);
+        
+        
         
     }
      

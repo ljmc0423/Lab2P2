@@ -79,8 +79,8 @@ public class PanelRegistrarHoras extends JFrame {
         setVisible(true);
         
         btnRegistrar.addActionListener(e -> {
-            int codigo = Integer.parseInt(txtCodigo.getText()); // store parsed int
-            int horas = Integer.parseInt(txtHoras.getText());   // store parsed int
+            int codigo = Integer.parseInt(txtCodigo.getText());
+            int horas = Integer.parseInt(txtHoras.getText());
             Empresa emp=new Empresa();
             boolean ok = emp.registrarHoras(codigo, horas);
             JOptionPane.showMessageDialog(this, ok ? "Horas registradas" : "Empleado no encontrado");

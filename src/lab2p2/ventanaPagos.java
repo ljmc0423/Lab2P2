@@ -67,11 +67,4 @@ public class ventanaPagos extends JFrame {
         }
     }
     
-    public static void main(String[] args) {
-         SwingUtilities.invokeLater(() -> {
-             Empresa empresaDePrueba = new Empresa();
-        ventanaPagos ventana = new ventanaPagos(empresaDePrueba);
-        ventana.setVisible(true);
-    });
-    }
 }
