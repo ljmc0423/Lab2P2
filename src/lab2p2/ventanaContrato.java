@@ -92,10 +92,5 @@ public class ventanaContrato extends JFrame {
         
     }
      
-     public static void main(String[] args) {
-        ventanaContrato p=new ventanaContrato();
-        p.setVisible(true);
-    }
-     
     
 }
