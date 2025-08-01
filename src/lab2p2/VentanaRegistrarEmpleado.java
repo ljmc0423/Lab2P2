@@ -21,7 +21,7 @@ public class VentanaRegistrarEmpleado extends JFrame {
         setTitle("Registrar Empleado Temporal");
         setSize(500, 400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setLocationRelativeTo(null); // Centrar ventana
+        setLocationRelativeTo(null); 
         setLayout(new GridBagLayout());
 
         GridBagConstraints gbc = new GridBagConstraints();
@@ -30,7 +30,7 @@ public class VentanaRegistrarEmpleado extends JFrame {
         // Título
         lblTitulo = new JLabel("Registrar Empleado Temporal");
         lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 22));
-        lblTitulo.setForeground(new Color(0, 51, 102)); // Azul oscuro para profesional
+        lblTitulo.setForeground(new Color(0, 51, 102)); 
 
         lblCodigo = new JLabel("Código:");
         lblNombre = new JLabel("Nombre:");
@@ -42,13 +42,13 @@ public class VentanaRegistrarEmpleado extends JFrame {
         txtNombre = new JTextField(15);
         txtSalario = new JTextField(15);
 
-        // Spinner con fecha de contratación
+        
         spnContratacion = new JSpinner(new SpinnerDateModel());
         JSpinner.DateEditor editor1 = new JSpinner.DateEditor(spnContratacion, "dd/MM/yyyy");
         spnContratacion.setEditor(editor1);
-        spnContratacion.setValue(new Date()); // hoy
+        spnContratacion.setValue(new Date());
 
-        // Spinner con fecha fin de contrato
+       
         spnFin = new JSpinner(new SpinnerDateModel());
         JSpinner.DateEditor editor2 = new JSpinner.DateEditor(spnFin, "dd/MM/yyyy");
         spnFin.setEditor(editor2);
@@ -56,7 +56,7 @@ public class VentanaRegistrarEmpleado extends JFrame {
         btnGuardar = new JButton("Guardar");
         btnCancelar = new JButton("Cancelar");
 
-        // Diseño profesional para botones
+       
         btnGuardar.setBackground(new Color(0, 153, 76));
         btnGuardar.setForeground(Color.WHITE);
         btnGuardar.setFocusPainted(false);
@@ -65,7 +65,7 @@ public class VentanaRegistrarEmpleado extends JFrame {
         btnCancelar.setForeground(Color.WHITE);
         btnCancelar.setFocusPainted(false);
 
-        // Posicionamiento
+       
         gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2;
         add(lblTitulo, gbc);
 
@@ -105,7 +105,7 @@ public class VentanaRegistrarEmpleado extends JFrame {
         setVisible(true);
     }
 
-    // Métodos para obtener datos
+   
     public int getCodigo() {
         try { return Integer.parseInt(txtCodigo.getText()); }
         catch (Exception e) { return 0; }

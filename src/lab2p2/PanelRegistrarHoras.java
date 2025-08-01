@@ -1,6 +1,8 @@
 package lab2p2;
 
 
+import javax.swing.*;
+import java.awt.*;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -11,24 +13,28 @@ package lab2p2;
  *
  * @author adrianaguilar
  */
-import javax.swing.JPanel;
-import javax.swing.*;
-import java.awt.*;
 
-public class PanelRegistrarHoras extends JPanel {
+
+public class PanelRegistrarHoras extends JFrame {
 
     private JLabel lblTitulo, lblCodigo, lblHoras;
     private JTextField txtCodigo, txtHoras;
     private JButton btnRegistrar, btnCancelar;
 
     public PanelRegistrarHoras() {
+        setTitle("Registrar Horas Trabajadas");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null); // Centrar ventana
         setLayout(new GridBagLayout());
+
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
 
-    
+        // Título
         lblTitulo = new JLabel("Registrar Horas Trabajadas");
-        lblTitulo.setFont(new Font("Arial", Font.BOLD, 18));
+        lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 20));
+        lblTitulo.setForeground(new Color(0, 51, 102));
 
         lblCodigo = new JLabel("Código del Empleado:");
         lblHoras = new JLabel("Horas trabajadas:");
@@ -39,7 +45,16 @@ public class PanelRegistrarHoras extends JPanel {
         btnRegistrar = new JButton("Registrar");
         btnCancelar = new JButton("Cancelar");
 
-       
+        // Estilo de botones
+        btnRegistrar.setBackground(new Color(0, 153, 76));
+        btnRegistrar.setForeground(Color.WHITE);
+        btnRegistrar.setFocusPainted(false);
+
+        btnCancelar.setBackground(new Color(204, 0, 0));
+        btnCancelar.setForeground(Color.WHITE);
+        btnCancelar.setFocusPainted(false);
+
+        // Ubicación
         gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2;
         add(lblTitulo, gbc);
 
@@ -60,9 +75,11 @@ public class PanelRegistrarHoras extends JPanel {
         add(btnRegistrar, gbc);
         gbc.gridx = 1;
         add(btnCancelar, gbc);
+
+        setVisible(true);
     }
 
-    
+    // Getters para lógica
     public String getCodigo() {
         return txtCodigo.getText();
     }
@@ -75,11 +92,6 @@ public class PanelRegistrarHoras extends JPanel {
         }
     }
 
-    public JButton getBtnRegistrar() {
-        return btnRegistrar;
-    }
-
-    public JButton getBtnCancelar() {
-        return btnCancelar;
-    }
+    public JButton getBtnRegistrar() { return btnRegistrar; }
+    public JButton getBtnCancelar() { return btnCancelar; }
 }
