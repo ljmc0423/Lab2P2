@@ -39,7 +39,11 @@ public class Empleado {
     public String mostrarInfo() {
         int dia = fechaContratacion.get(Calendar.DAY_OF_MONTH);
         int mes = fechaContratacion.get(Calendar.MONTH) + 1;
+
         int anno = fechaContratacion.get(Calendar.YEAR);
+
+        int year = fechaContratacion.get(Calendar.YEAR);
+
 
         return "Código: " + codigoEmpleado
                 + "\nNombre: " + nombreEmpleado
