@@ -52,7 +52,7 @@ public class VentanaRegistrarEmpleado extends JPanel {
         
         spnContratacion = new JSpinner(new SpinnerDateModel());
         spnContratacion.setEditor(new JSpinner.DateEditor(spnContratacion, "dd/MM/yyyy"));
-        spnContratacion.setValue(new Date()); // hoy por defecto
+        spnContratacion.setValue(new Date()); 
 
         spnFin = new JSpinner(new SpinnerDateModel());
         spnFin.setEditor(new JSpinner.DateEditor(spnFin, "dd/MM/yyyy"));
@@ -98,7 +98,7 @@ public class VentanaRegistrarEmpleado extends JPanel {
         add(btnCancelar, gbc);
     }
 
-    // Getters para la lógica
+ 
     public int getCodigo() { 
         try { return Integer.parseInt(txtCodigo.getText()); }
         catch (Exception e) { return 0; }
