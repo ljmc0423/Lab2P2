@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 public class Lab2P2 extends JFrame {
 
     public Lab2P2() {
-       
+        Empresa empresa = new Empresa();
         JPanel panelLogin = new JPanel();
         JLabel labelLogin = new JLabel("GESTIÓN DE EMPLEADOS");
 
@@ -52,14 +52,18 @@ public class Lab2P2 extends JFrame {
         contratoButton.setBounds(256, 202, 200, 30);
         contratoButton.setFont(new Font("Verdana", Font.BOLD, 14));
         contratoButton.addActionListener(e -> {
-            this.setVisible(false);
+            this.dispose();
             new ventanaContrato().setVisible(true);
         });
 
         calculoButton.setBounds(26, 252, 224, 30);
         reporteButton.setBounds(256, 252, 200, 30);
         salirButton.setBounds(150, 302, 200, 30);
-
+         
+        calculoButton.addActionListener(e->{
+        this.dispose();
+        new ventanaPagos(empresa).setVisible(true);
+        });
         salirButton.addActionListener(e -> System.exit(0));
 
         panelLogin.add(labelLogin);

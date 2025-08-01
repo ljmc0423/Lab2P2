@@ -21,7 +21,7 @@ public class ventanaContrato extends JFrame {
      public ventanaContrato(){
        
         JPanel panelLogin = new JPanel();
-        JLabel labelLogin = new JLabel("ACTUALIZACIÓN DE CONTRATO");
+        JLabel labelLogin = new JLabel("PAGOS DE EMPLEADOS");
 
         JLabel codigoLabel = new JLabel("Código de Empleado: ");
         JTextField codigoText = new JTextField();
