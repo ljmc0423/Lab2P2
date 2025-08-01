@@ -1,13 +1,11 @@
-package lab2p2;
-
-
-import javax.swing.*;
-import java.awt.*;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package lab2p2;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -15,15 +13,15 @@ import java.awt.*;
  */
 
 
-public class PanelRegistrarHoras extends JFrame {
+public class RegistrarVentas extends JFrame {
 
-    private JLabel lblTitulo, lblCodigo, lblHoras;
-    private JTextField txtCodigo, txtHoras;
+    private JLabel lblTitulo, lblCodigo, lblMonto;
+    private JTextField txtCodigo, txtMonto;
     private JButton btnRegistrar, btnCancelar;
 
-    public PanelRegistrarHoras() {
-        setTitle("Registrar Horas Trabajadas");
-        setSize(400, 300);
+    public RegistrarVentas() {
+        setTitle("Registrar Ventas - Empleado de Ventas");
+        setSize(400, 250);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new GridBagLayout());
@@ -32,20 +30,20 @@ public class PanelRegistrarHoras extends JFrame {
         gbc.insets = new Insets(10, 10, 10, 10);
 
         
-        lblTitulo = new JLabel("Registrar Horas Trabajadas");
+        lblTitulo = new JLabel("Registrar Ventas");
         lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 20));
         lblTitulo.setForeground(new Color(0, 51, 102));
 
         lblCodigo = new JLabel("Código del Empleado:");
-        lblHoras = new JLabel("Horas trabajadas:");
+        lblMonto = new JLabel("Monto de la Venta:");
 
         txtCodigo = new JTextField(15);
-        txtHoras = new JTextField(15);
+        txtMonto = new JTextField(15);
 
         btnRegistrar = new JButton("Registrar");
         btnCancelar = new JButton("Cancelar");
 
-        
+       
         btnRegistrar.setBackground(new Color(0, 153, 76));
         btnRegistrar.setForeground(Color.WHITE);
         btnRegistrar.setFocusPainted(false);
@@ -67,9 +65,9 @@ public class PanelRegistrarHoras extends JFrame {
         add(txtCodigo, gbc);
 
         gbc.gridx = 0; gbc.gridy = 2;
-        add(lblHoras, gbc);
+        add(lblMonto, gbc);
         gbc.gridx = 1;
-        add(txtHoras, gbc);
+        add(txtMonto, gbc);
 
         gbc.gridx = 0; gbc.gridy = 3;
         add(btnRegistrar, gbc);
@@ -77,35 +75,24 @@ public class PanelRegistrarHoras extends JFrame {
         add(btnCancelar, gbc);
 
         setVisible(true);
-        
-        btnRegistrar.addActionListener(e -> {
-            int codigo = Integer.parseInt(txtCodigo.getText());
-            int horas = Integer.parseInt(txtHoras.getText());
-            Empresa emp=new Empresa();
-            boolean ok = emp.registrarHoras(codigo, horas);
-            JOptionPane.showMessageDialog(this, ok ? "Horas registradas" : "Empleado no encontrado");
-        });
-        
     }
 
-
+    
     public String getCodigo() {
         return txtCodigo.getText();
     }
 
-    public int getHoras() {
+    public double getMonto() {
         try {
-            return Integer.parseInt(txtHoras.getText());
+            return Double.parseDouble(txtMonto.getText());
         } catch (Exception e) {
-            return 0;
+            return 0.0;
         }
     }
-    
-    
 
     public JButton getBtnRegistrar() { return btnRegistrar; }
     public JButton getBtnCancelar() { return btnCancelar; }
     
-    
-   
+
 }
+
