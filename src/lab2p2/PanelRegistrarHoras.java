@@ -44,13 +44,10 @@ public class PanelRegistrarHoras extends JFrame {
 
         btnRegistrar = new JButton("Registrar");
         btnCancelar = new JButton("Cancelar");
-<<<<<<< HEAD
+
         btnRegresar = new JButton("Regresar");
         // Estilo de botones
-=======
 
-        
->>>>>>> e66e97e0ec3bd01c037c87e273bd56d6162b5423
         btnRegistrar.setBackground(new Color(0, 153, 76));
         btnRegistrar.setForeground(Color.WHITE);
         btnRegistrar.setFocusPainted(false);
