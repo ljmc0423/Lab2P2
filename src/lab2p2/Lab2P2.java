@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.JFrame;
 
 /**
  *
@@ -64,6 +65,8 @@ public class Lab2P2 extends JFrame{
         panelLogin.add(iniciarButton);
         panelLogin.add(salirButton);
 
+        // TODO code application logic here
+
     }
-    
 }
+    
