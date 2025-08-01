@@ -158,7 +158,7 @@ public class VentanaRegistrarEmpleado extends JFrame {
 
                     case "Ventas":
                         String tasaStr = txtTasaComision.getText().trim();
-                        double tasaComision = 0.05; 
+                        double tasaComision = 0.05; // default 5%
                         if (!tasaStr.isEmpty()) {
                             tasaComision = Double.parseDouble(tasaStr) / 100.0;
                             if (tasaComision < 0 || tasaComision > 1) {
