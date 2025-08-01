@@ -77,6 +77,15 @@ public class PanelRegistrarHoras extends JFrame {
         add(btnCancelar, gbc);
 
         setVisible(true);
+        
+        btnRegistrar.addActionListener(e -> {
+            int codigo = Integer.parseInt(txtCodigo.getText()); // store parsed int
+            int horas = Integer.parseInt(txtHoras.getText());   // store parsed int
+            Empresa emp=new Empresa();
+            boolean ok = emp.registrarHoras(codigo, horas);
+            JOptionPane.showMessageDialog(this, ok ? "Horas registradas" : "Empleado no encontrado");
+        });
+        
     }
 
     // Getters para lógica
@@ -91,6 +100,8 @@ public class PanelRegistrarHoras extends JFrame {
             return 0;
         }
     }
+    
+    
 
     public JButton getBtnRegistrar() { return btnRegistrar; }
     public JButton getBtnCancelar() { return btnCancelar; }
