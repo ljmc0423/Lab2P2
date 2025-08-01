@@ -39,12 +39,16 @@ public class Lab2P2 extends JFrame {
         registrarButton.setBounds(26, 152, 224, 30);
         registrarButton.setFont(new Font("Verdana", Font.BOLD, 14));
         registrarButton.addActionListener(e -> {
-            VentanaRegistrarEmpleado ventana1 = new VentanaRegistrarEmpleado();
-            ventana1.setVisible(true);
+            this.dispose();
+            new VentanaRegistrarEmpleado(empresa).setVisible(true);
         });
 
         horasButton.setBounds(256, 152, 200, 30);
         horasButton.setFont(new Font("Verdana", Font.BOLD, 14));
+        horasButton.addActionListener(e->{
+            this.dispose();
+            new PanelRegistrarHoras().setVisible(true);
+        });
 
         ventasButton.setBounds(26, 202, 224, 30);
         ventasButton.setFont(new Font("Verdana", Font.BOLD, 14));

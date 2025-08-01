@@ -13,7 +13,7 @@ import java.util.Calendar;
 public class EmpleadoVentas extends Empleado {
 
     private double ventasMensuales[];
-    private double tasaComision;
+    public double tasaComision;
     private int mesActual;
 
     public EmpleadoVentas(int codigo, String nombre, double salario) {

@@ -19,7 +19,7 @@ public class PanelRegistrarHoras extends JFrame {
 
     private JLabel lblTitulo, lblCodigo, lblHoras;
     private JTextField txtCodigo, txtHoras;
-    private JButton btnRegistrar, btnCancelar;
+    private JButton btnRegistrar, btnCancelar, btnRegresar;
 
     public PanelRegistrarHoras() {
         setTitle("Registrar Horas Trabajadas");
@@ -44,7 +44,7 @@ public class PanelRegistrarHoras extends JFrame {
 
         btnRegistrar = new JButton("Registrar");
         btnCancelar = new JButton("Cancelar");
-
+        btnRegresar = new JButton("Regresar");
         // Estilo de botones
         btnRegistrar.setBackground(new Color(0, 153, 76));
         btnRegistrar.setForeground(Color.WHITE);
