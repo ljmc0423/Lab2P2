@@ -4,7 +4,6 @@
  */
 package lab2p2;
 
-<<<<<<< HEAD
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -13,10 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-=======
 import javax.swing.JFrame;
-
->>>>>>> ffe6521 (Subida de clase VentaTemporal y Ventana visual)
 
 /**
  *
@@ -28,7 +24,6 @@ public class Lab2P2 extends JFrame{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-<<<<<<< HEAD
         JFrame ventana = new JFrame();
         JPanel panelLogin = new JPanel();
         JLabel labelLogin = new JLabel("GESTIÓN DE EMPLEADOS");
@@ -70,11 +65,8 @@ public class Lab2P2 extends JFrame{
         panelLogin.add(iniciarButton);
         panelLogin.add(salirButton);
 
-=======
         // TODO code application logic here
 
-        
->>>>>>> ffe6521 (Subida de clase VentaTemporal y Ventana visual)
     }
 }
     
