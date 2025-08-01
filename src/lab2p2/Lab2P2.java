@@ -65,8 +65,7 @@ public class Lab2P2 extends JFrame{
         panelLogin.add(iniciarButton);
         panelLogin.add(salirButton);
 
-        // TODO code application logic here
-
+       
     }
 }
     
