@@ -4,40 +4,33 @@
  */
 package lab2p2;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+
+import javax.swing.*;
+import java.awt.*;
 import java.util.Calendar;
 import java.util.Date;
-import javax.swing.*;
 
-import java.awt.*;
-import java.time.LocalDate;
-import java.time.ZoneId;
+public class VentanaRegistrarEmpleado extends JFrame {
 
-/**
- *
- * @author adrianaguilar
- */
-public class VentanaRegistrarEmpleado extends JPanel {
-
-    
     private JLabel lblTitulo, lblCodigo, lblNombre, lblSalario, lblFechaContratacion, lblFechaFin;
-    
     private JTextField txtCodigo, txtNombre, txtSalario;
-    
     private JSpinner spnContratacion, spnFin;
-    
     private JButton btnGuardar, btnCancelar;
 
     public VentanaRegistrarEmpleado() {
+        setTitle("Registrar Empleado Temporal");
+        setSize(500, 400);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null); 
         setLayout(new GridBagLayout());
+
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
 
-        
+        // Título
         lblTitulo = new JLabel("Registrar Empleado Temporal");
-        lblTitulo.setFont(new Font("Arial", Font.BOLD, 18));
+        lblTitulo.setFont(new Font("Segoe UI", Font.BOLD, 22));
+        lblTitulo.setForeground(new Color(0, 51, 102)); 
 
         lblCodigo = new JLabel("Código:");
         lblNombre = new JLabel("Nombre:");
@@ -51,21 +44,33 @@ public class VentanaRegistrarEmpleado extends JPanel {
 
         
         spnContratacion = new JSpinner(new SpinnerDateModel());
-        spnContratacion.setEditor(new JSpinner.DateEditor(spnContratacion, "dd/MM/yyyy"));
-        spnContratacion.setValue(new Date()); 
+        JSpinner.DateEditor editor1 = new JSpinner.DateEditor(spnContratacion, "dd/MM/yyyy");
+        spnContratacion.setEditor(editor1);
+        spnContratacion.setValue(new Date());
 
+       
         spnFin = new JSpinner(new SpinnerDateModel());
-        spnFin.setEditor(new JSpinner.DateEditor(spnFin, "dd/MM/yyyy"));
+        JSpinner.DateEditor editor2 = new JSpinner.DateEditor(spnFin, "dd/MM/yyyy");
+        spnFin.setEditor(editor2);
 
         btnGuardar = new JButton("Guardar");
         btnCancelar = new JButton("Cancelar");
 
-        
+       
+        btnGuardar.setBackground(new Color(0, 153, 76));
+        btnGuardar.setForeground(Color.WHITE);
+        btnGuardar.setFocusPainted(false);
+
+        btnCancelar.setBackground(new Color(204, 0, 0));
+        btnCancelar.setForeground(Color.WHITE);
+        btnCancelar.setFocusPainted(false);
+
+       
         gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2;
         add(lblTitulo, gbc);
 
-        gbc.anchor = GridBagConstraints.WEST;
         gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.WEST;
 
         gbc.gridx = 0; gbc.gridy = 1;
         add(lblCodigo, gbc);
@@ -96,37 +101,42 @@ public class VentanaRegistrarEmpleado extends JPanel {
         add(btnGuardar, gbc);
         gbc.gridx = 1;
         add(btnCancelar, gbc);
+
+        setVisible(true);
     }
 
- 
-    public int getCodigo() { 
+   
+    public int getCodigo() {
         try { return Integer.parseInt(txtCodigo.getText()); }
         catch (Exception e) { return 0; }
     }
 
     public String getNombre() { return txtNombre.getText(); }
 
-    public double getSalario() { 
+    public double getSalario() {
         try { return Double.parseDouble(txtSalario.getText()); }
         catch (Exception e) { return 0.0; }
     }
 
-    public LocalDate getFechaContratacion() {
+    public Calendar getFechaContratacion() {
         Date fecha = (Date) spnContratacion.getValue();
-        return fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(fecha);
+        return cal;
     }
 
-    public LocalDate getFechaFin() {
+    public Calendar getFechaFin() {
         Date fecha = (Date) spnFin.getValue();
-        return fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(fecha);
+        return cal;
     }
 
     public JButton getBtnGuardar() { return btnGuardar; }
     public JButton getBtnCancelar() { return btnCancelar; }
+
     
-   public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new VentanaRegistrarEmpleado(); // Ejecuta la GUI
-        });
-    }
+
 }
+
+
